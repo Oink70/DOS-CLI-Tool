@@ -168,17 +168,17 @@ zcsamplejoinsplit
 Example Shield & Unshield from z-address:
 
 	Command:
-verus -ac_name=VRSCTEST z_shieldcoinbase "*" "zs19gcemprynyqxf068u79mzcgvvr4sfwvky4mp2k5tdt8pshzee20wcdxhx24zkp7hh7qncwvgqp6"
+/opt/verus/verus.sh z_shieldcoinbase "*" "zs1qezhwaxxzyr69q6f99u4h7mspx0c9x5gm05aq3lc563qjl0nrmhncav0qg6uv5vyx3wsz7efaxz"
 	Result:
 
 
 	Command:
-verus -ac_name=VRSCTEST z_getbalance "zs19gcemprynyqxf068u79mzcgvvr4sfwvky4mp2k5tdt8pshzee20wcdxhx24zkp7hh7qncwvgqp6"
+/opt/verus/verus.sh z_getbalance "zs1qezhwaxxzyr69q6f99u4h7mspx0c9x5gm05aq3lc563qjl0nrmhncav0qg6uv5vyx3wsz7efaxz"
 	Result:
 61608.99662591
 
 	Command:
-verus -ac_name=VRSCTEST z_sendmany "zs19gcemprynyqxf068u79mzcgvvr4sfwvky4mp2k5tdt8pshzee20wcdxhx24zkp7hh7qncwvgqp6" "[{\"address\": \"RWvXGEHLWWnHS7Cn6aXgJ5gvUxQEmYveY2\", \"amount\": \"61608.99652591\"}]"
+/opt/verus/verus.sh z_sendmany "zs1qezhwaxxzyr69q6f99u4h7mspx0c9x5gm05aq3lc563qjl0nrmhncav0qg6uv5vyx3wsz7efaxz" "[{\"address\": \"RWVuBdu5oHuAYuyivapaaUjbnSfAFHfsqJ\", \"amount\": \"61608.99652591\"}]"
 	Result:
 opid-d4372014-14ed-46bb-98eb-2176d89d9f15
 
