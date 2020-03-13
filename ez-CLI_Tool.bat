@@ -78,7 +78,7 @@ IF %M%==h GOTO HELP
 @call :GET_CURRENT_DIR
 @cd %AppData%/Komodo/VRSC
 CLS
-start %FILELOCATION%\verusd -mint
+start "%FILELOCATION%\verusd" -mint
 @cd %THIS_DIR%
 ECHO.
 ECHO Verus started
@@ -89,7 +89,7 @@ GOTO MENU
 @call :GET_CURRENT_DIR
 @cd %THIS_DIR%
 CLS
-%FILELOCATION%/verus stop
+"%FILELOCATION%/verus" stop
 ECHO.
 ECHO Verus stopped
 TIMEOUT /T 5
@@ -100,7 +100,7 @@ GOTO MENU
 @call :GET_CURRENT_DIR
 @cd %THIS_DIR%
 CLS
-%FILELOCATION%/verus setgenerate true
+"%FILELOCATION%/verus" setgenerate true
 ECHO.
 ECHO Staking succsesfully switched on
 TIMEOUT /T 5
@@ -111,7 +111,7 @@ GOTO MENU
 @cd %THIS_DIR%
 CLS
 rem cd %FILELOCATION%
-%FILELOCATION%/verus setgenerate false
+"%FILELOCATION%/verus" setgenerate false
 ECHO.
 ECHO Staking succsesfully switched off
 TIMEOUT /T 5
@@ -121,7 +121,7 @@ GOTO MENU
 @call :GET_CURRENT_DIR
 @cd %THIS_DIR%
 CLS
-%FILELOCATION%/verus getmininginfo
+"%FILELOCATION%/verus" getmininginfo
 ECHO.
 TIMEOUT /T 10
 GOTO MENU
@@ -130,28 +130,28 @@ GOTO MENU
 @call :GET_CURRENT_DIR
 @cd %THIS_DIR%
 CLS
-%FILELOCATION%/verus getbalance
+"%FILELOCATION%/verus" getbalance
 ECHO.
 TIMEOUT /T 10
 GOTO MENU
 
 :LISTADDRESSGROUPINGS
 @cd %THIS_DIR%
-%FILELOCATION%/verus listaddressgroupings
+"%FILELOCATION%/verus" listaddressgroupings
 ECHO.
 TIMEOUT /T 15
 GOTO MENU
 
 :GETWALLETINFO
 @cd %THIS_DIR%
-%FILELOCATION%/verus getwalletinfo
+"%FILELOCATION%/verus" getwalletinfo
 ECHO.
 TIMEOUT /T 10
 GOTO MENU
 
 :Z_GETBALANCE
 @cd %THIS_DIR%
-%FILELOCATION%/verus z_getbalance "%Z-ADDRESS%"
+"%FILELOCATION%/verus" z_getbalance "%Z-ADDRESS%"
 ECHO.
 TIMEOUT /T 10
 GOTO MENU
@@ -159,7 +159,7 @@ GOTO MENU
 :Z_SHIELDCOINBASE
 @cd %THIS_DIR%
 @echo on
-%FILELOCATION%/verus z_shieldcoinbase "*" "%Z-ADDRESS%"
+"%FILELOCATION%/verus" z_shieldcoinbase "*" "%Z-ADDRESS%"
 ECHO.
 TIMEOUT /T 10
 @echo off
@@ -170,7 +170,7 @@ GOTO MENU
 @SETLOCAL EnableDelayedExpansion
 
 REM Command below disabled for off-line testing
-For /F "delims=" %%I in ('%FILELOCATION%/verus z_getbalance "%Z-ADDRESS%"') Do Set BALANCE=%%I
+For /F "delims=" %%I in ('"%FILELOCATION%/verus" z_getbalance "%Z-ADDRESS%"') Do Set BALANCE=%%I
 REM command below inserted for testing
 REM set BALANCE=23.99990000
 
@@ -277,7 +277,7 @@ ECHO from %Z-ADDRESS%
 ECHO to %T-ADDRESS%
 ECHO .
 REM Send z-balance minus fee to t-address
-%FILELOCATION%/verus z_sendmany "%Z-ADDRESS%" "[{\"address\": \"%T-ADDRESS%\",\"amount\": %TRANSFER%}]"
+"%FILELOCATION%/verus" z_sendmany "%Z-ADDRESS%" "[{\"address\": \"%T-ADDRESS%\",\"amount\": %TRANSFER%}]"
 ECHO.
 set TRANSFER=
 TIMEOUT /T 100
@@ -285,49 +285,49 @@ GOTO MENU
 
 :Z_LISTADDRESSES
 @cd %THIS_DIR%
-%FILELOCATION%/verus z_listaddresses
+"%FILELOCATION%/verus" z_listaddresses
 ECHO.
 TIMEOUT /T 10
 GOTO MENU
 
 :Z_GETOPERATIONSTATUS
 @cd %THIS_DIR%
-%FILELOCATION%/verus z_getoperationstatus
+"%FILELOCATION%/verus" z_getoperationstatus
 ECHO.
 TIMEOUT /T 10
 GOTO MENU
 
 :LISTUNSPENT
 @cd %THIS_DIR%
-%FILELOCATION%/verus listunspent
+"%FILELOCATION%/verus" listunspent
 ECHO.
 TIMEOUT /T 240
 GOTO MENU
 
 :GETNETWORKINFO
 @cd %THIS_DIR%
-%FILELOCATION%/verus getnetworkinfo
+"%FILELOCATION%/verus" getnetworkinfo
 ECHO.
 TIMEOUT /T 20
 GOTO MENU
 
 :GETBLOCKCHAININFO
 @cd %THIS_DIR%
-%FILELOCATION%/verus getblockchaininfo
+"%FILELOCATION%/verus" getblockchaininfo
 ECHO.
 TIMEOUT /T 20
 GOTO MENU
 
 :GETDIFFICULTY
 @cd %THIS_DIR%
-%FILELOCATION%/verus getdifficulty
+"%FILELOCATION%/verus" getdifficulty
 ECHO.
 TIMEOUT /T 10
 GOTO MENU
 
 :HELP
 @cd %THIS_DIR%
-%FILELOCATION%/verus help
+"%FILELOCATION%/verus" help
 ECHO.
 TIMEOUT /T 240
 GOTO MENU
